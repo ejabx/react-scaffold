@@ -11,7 +11,8 @@ function isNumeric(str: string) {
 }
 
 export function NumberInput(props: any) {
-    const { onChange, onError } = props
+    const { onChange, onError, adornment } = props
+
     const validate = (e: any) => {
         const value: string = e.target.value
         onChange(e.target.value)
@@ -23,6 +24,19 @@ export function NumberInput(props: any) {
             {...props}
             onChange={validate}
             error={!isNumeric(props.value)}
+            slotProps={
+                adornment
+                    ? {
+                          input: {
+                              endAdornment: (
+                                  <InputAdornment position="end">
+                                      {adornment}
+                                  </InputAdornment>
+                              ),
+                          },
+                      }
+                    : {}
+            }
         />
     )
 }
@@ -70,6 +84,7 @@ export function MorgageCalculator() {
                     id="interest"
                     label="Interest Rate"
                     variant="outlined"
+                    adornment="%"
                     value={interest}
                     onChange={setInterest}
                     onError={setError}
@@ -78,6 +93,7 @@ export function MorgageCalculator() {
                     id="loan_length"
                     label="Length of Loan"
                     variant="outlined"
+                    adornment="Years"
                     value={loanLength}
                     onChange={setLoanLength}
                     onError={setError}
