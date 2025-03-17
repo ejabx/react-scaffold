@@ -1,9 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Counter } from './counter';
+import { MorgageCalculator } from './morgage';
 
 const App: React.FC = () => {
-  return <Counter/>;
+  return (
+    <>
+      <MorgageCalculator/>
+    </>
+  );
 };
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
