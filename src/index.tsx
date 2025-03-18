@@ -1,16 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { Counter } from './counter';
-import { MorgageCalculator } from './morgage';
-import { ShoppingList } from './shopping';
+import { App } from './app';
 
-const App: React.FC = () => {
+const Root: React.FC = () => {
   return (
     <>
-      <ShoppingList/>
+      <App/>
     </>
   );
 };
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
-root.render(<App />);
+root.render(<Root />);
